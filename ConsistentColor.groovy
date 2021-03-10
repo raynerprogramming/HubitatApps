@@ -77,7 +77,7 @@ def updateDevice(current) {
         current.setColorTemperature(master.currentColorTemperature)
     }else{
         log.debug "new color mode RGB"
-        current.setColor(`[hue:${master.currentHue},saturation:${master.currentSaturation},level:${master.currentLevel}]`); 
+        current.setColor([hue:master.currentHue,saturation:master.currentSaturation,level:master.currentLevel]); 
     }
     // log.debug "Consistent Colors: setting ${current.displayName} level to ${master.currentLevel}"
     // log.debug "Consistent Colors: setting ${current.displayName} colorMode to ${master.currentColorMode}"
