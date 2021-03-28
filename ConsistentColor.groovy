@@ -63,7 +63,7 @@ def handleChangeEvent(evt) {
     log.debug "Consistent Colors handleChangeEvent: " + thisinstance
     log.debug "handleChangeEvent"
     log.debug master
-    tempDevices = rgbDevices
+    tempDevices = rgbDevices.findAll{it.currentValue("switch") == "on"}
     tempMaster = master
     while(tempDevices){
         if(thisinstance != atomicState.instanceCount){
@@ -74,7 +74,7 @@ def handleChangeEvent(evt) {
         log.debug "Consistent Colors handleChangeEvent: " + thisinstance
         log.debug "====================================================="
         log.debug "temp devices " + tempDevices.size() + " " + tempDevices  
-        tempDevices.findAll{it.currentValue("switch") == "on"}.each {
+        tempDevices.each {
             log.debug "----------------------------------------------------------"
             log.debug it            
             if (it.currentValue("switch") == "on"){
